@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  server:
+    container_name: "server"
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: server.Dockerfile
+    ports:
+      - "${PORT}:${PORT}"
+    volumes:
+      - type: bind
+        source: ./server
+        target: /usr/src/app
+    working_dir: /usr/src/app
+
+    

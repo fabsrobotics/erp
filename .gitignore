@@ -1,0 +1,12 @@
+# Binary
+server/main
+
+# Environment Variables
+.env
+
+# IDE
+.idea/
+.vscode/
+
+# MACOS
+.DS_Store
