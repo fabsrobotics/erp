@@ -20,7 +20,7 @@ services:
       dockerfile: server.Dockerfile
     ports:
       - "${PORT}:${PORT}"
-    volumes:
+    volumes: 
       - type: bind
         source: ./server
         target: /usr/src/app
