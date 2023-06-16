@@ -1,8 +1,18 @@
 version: '3.9'
 
 services:
+  db:
+    image: mariadb
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "${MARIADB_PORT}:3306"
+    volumes:
+      - "dbdata:/var/lib/mysql"
   server:
-    container_name: "server"
+    depends_on:
+      - db
     env_file:
       - .env
     build:
@@ -16,4 +26,6 @@ services:
         target: /usr/src/app
     working_dir: /usr/src/app
 
+volumes:
+  dbdata:
     
